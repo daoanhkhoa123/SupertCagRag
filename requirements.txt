@@ -1,6 +1,8 @@
+streamlit
 pdfplumber
 ollama
-langchain-ollama
 langchain-community
-langchain
+langchain-ollama
+langchain-text-splitters
 chromadb
+langchain
