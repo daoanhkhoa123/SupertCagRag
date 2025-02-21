@@ -2,7 +2,6 @@ from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.document_loaders import UnstructuredPDFLoader
-from langchain.document_loaders import PyPDFLoader
 import streamlit as st
 import logging
 import os
@@ -24,8 +23,8 @@ embeddings = OllamaEmbeddings(model="nomic-embed-text")
 
 def create_vector_db() -> Chroma:
     global embeddings
-    vector_db = Chroma.from_documents(collection_name=COLLECTION_NAME,
-                                      embedding_function=embeddings, persist_directory=PERSIST_DIRECTORY)
+    vector_db = Chroma(collection_name=COLLECTION_NAME,
+                       embedding_function=embeddings, persist_directory=PERSIST_DIRECTORY)
 
     return vector_db
 
