@@ -8,3 +8,4 @@ chromadb
 langchain
 langchain-chroma
 unstructured
+pi_heif
