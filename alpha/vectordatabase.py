@@ -22,8 +22,9 @@ embeddings = OllamaEmbeddings(model="nomic-embed-text")
 
 
 def create_vector_db() -> Chroma:
-    vector_db = Chroma(collection_name=COLLECTION_NAME,
-                       embeddings=embeddings, persist_directory=PERSIST_DIRECTORY)
+    global embeddings
+    vector_db = Chroma.from_documents(documents=[], collection_name=COLLECTION_NAME,
+                                      embedding_function=embeddings, persist_directory=PERSIST_DIRECTORY)
 
     return vector_db
 
