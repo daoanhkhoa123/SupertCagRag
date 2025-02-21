@@ -7,7 +7,7 @@ from langchain_community.vectorstores import Chroma
 import logging
 
 """ CONFIG VARIABLES """
-llm = ChatOllama(model="Olama")
+llm = ChatOllama(model="llama3")
 QUERY_PROMPT = PromptTemplate(input_variable=["question"],
                               template="""You are an AI language model assistant. Your task is to generate 2
                                         different versions of the given user question to retrieve relevant documents from
