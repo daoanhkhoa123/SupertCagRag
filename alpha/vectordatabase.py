@@ -1,7 +1,8 @@
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.document_loaders import UnstructuredPDFLoader
+from langchain.document_loaders import PyPDFLoader
 import streamlit as st
 import logging
 import os
@@ -23,7 +24,7 @@ embeddings = OllamaEmbeddings(model="nomic-embed-text")
 
 def create_vector_db() -> Chroma:
     global embeddings
-    vector_db = Chroma.from_documents(documents=[], collection_name=COLLECTION_NAME,
+    vector_db = Chroma.from_documents(collection_name=COLLECTION_NAME,
                                       embedding_function=embeddings, persist_directory=PERSIST_DIRECTORY)
 
     return vector_db
@@ -43,8 +44,9 @@ def load_uploadfiles(file_upload):
     return loader.load()
 
 
-def add_documents(vector_db, data):
+def add_documents(vector_db, file_upload):
     logger.info("Document split into chunks")
+    data = load_uploadfiles(file_upload)
     chunks = text_splitter.split_documents(data)
 
     vector_db.add_texts([chunk["text"] for chunk in chunks])
@@ -68,8 +70,3 @@ def delete_vector_db(vector_db):
     except Exception as e:
         st.error(f"Error deleting collection: {str(e)}")
         logger.error(f"Error deleting collection: {e}")
-
-# Usage example:
-# data = load_uploadfiles(file_upload)
-# add_documents(data)
-# delete_vector_db()
