@@ -1,0 +1,7 @@
+shutil
+pdfplumber
+ollama
+langchain-ollama
+langchain-community
+langchain
+chromadb
