@@ -1,3 +1,4 @@
+import nltk
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import OllamaEmbeddings
@@ -6,9 +7,12 @@ import streamlit as st
 import logging
 import os
 import tempfile
+import nltk
 
 
 """ CONFIG VARIABLES """
+nltk.download('punkt_tab')
+nltk.download('averaged_perceptron_tagger_eng')
 logger = logging.getLogger(__name__)
 COLLECTION_NAME = "your_collection_name"
 PERSIST_DIRECTORY = "your_persist_directory"
@@ -48,7 +52,7 @@ def add_documents(vector_db, file_upload):
     data = load_uploadfiles(file_upload)
     chunks = text_splitter.split_documents(data)
 
-    vector_db.add_texts([chunk["text"] for chunk in chunks])
+    vector_db.add_texts([chunk.page_content for chunk in chunks])
     logger.info(
         f"Successfully added {len(chunks)} chunks to the vector database")
 
