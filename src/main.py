@@ -1,5 +1,4 @@
-from haystack_integrations.components.embedders.ollama import OllamaDocumentEmbedder
-from haystack_integrations.components.generators.ollama import OllamaGenerator
+
 from aicore_database import vectordb
 from aicore.airesource import ultils as aiultils
 from aicore import (
@@ -17,6 +16,8 @@ import tempfile
 from pathlib import Path
 from typing import List, Any
 
+from haystack_integrations.components.embedders.ollama import OllamaDocumentEmbedder
+from haystack_integrations.components.generators.ollama import OllamaGenerator
 import pdfplumber
 import streamlit as st
 
