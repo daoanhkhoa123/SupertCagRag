@@ -1,5 +1,5 @@
 import tempfile
-from airesource.config import LLMNAME_GENERATE
+from aicore.airesource.config import LLMNAME_GENERATE
 import ollama
 
 

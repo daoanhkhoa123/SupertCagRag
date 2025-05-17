@@ -3,15 +3,15 @@ import subprocess
 import sys
 from pathlib import Path
 import os
-import pytesseract
+# import pytesseract
 
 # Get the conda environment path
 conda_prefix = os.getenv('CONDA_PREFIX')
 
 # Update the path to where Tesseract is installed on your system
-pytesseract.pytesseract.tesseract_cmd = fr"{conda_prefix}\Library\bin\tesseract.exe"
-import nltk
-nltk.download('averaged_perceptron_tagger_eng')
+# pytesseract.pytesseract.tesseract_cmd = fr"{conda_prefix}\Library\bin\tesseract.exe"
+# import nltk
+# nltk.download('averaged_perceptron_tagger_eng')
 
 def main():
     """Run the Streamlit application."""

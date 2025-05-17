@@ -1,5 +1,5 @@
 from enum import Enum
-from airesource.prompt import prompt_getemotion, prompt_emolize
+from aicore.airesource.prompt import prompt_getemotion, prompt_emolize
 import random
 
 class Emotion(Enum):

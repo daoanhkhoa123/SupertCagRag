@@ -8,13 +8,19 @@ from aicore import (
     prompt_caller,
     tablenvideo,
 )
-import src.aicore.airesource.config as config
+import aicore.airesource.config as config
 import os
 import sys
 import logging
 import tempfile
 from pathlib import Path
 from typing import List, Any
+
+
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.append(str(BASE_DIR / "aicore"))
+sys.path.append(str(BASE_DIR / "aicore_database"))
+
 
 from haystack_integrations.components.embedders.ollama import OllamaDocumentEmbedder
 from haystack_integrations.components.generators.ollama import OllamaGenerator
@@ -23,9 +29,6 @@ import streamlit as st
 
 # Ensure the parent directory of 'src' is in the Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-BASE_DIR = Path(__file__).resolve().parent
-sys.path.append(str(BASE_DIR / "aicore"))
-sys.path.append(str(BASE_DIR / "aicore_database"))
 
 
 # Set protobuf environment variable to avoid error messages

@@ -1,6 +1,6 @@
 from typing import List
 
-from airesource.prompt import (
+from aicore.airesource.prompt import (
     prompt_template,
     prompt_template_after_documents,
     prompt_template_after_websearch,
@@ -8,12 +8,12 @@ from airesource.prompt import (
     propmt_hallu_grader,
 )
 
-from airesource.route import (
+from aicore.airesource.route import (
     routes,
     hallu_route,
 )
 
-from airesource.config import LLMNAME_GENERATE, LLMNAME_ROUTE, LLMNAME_EMBEDDER, VECTOR_TOPK
+from aicore.airesource.config import LLMNAME_GENERATE, LLMNAME_ROUTE, LLMNAME_EMBEDDER, VECTOR_TOPK
 
 
 from haystack_integrations.components.generators.ollama import OllamaGenerator
@@ -26,7 +26,7 @@ from haystack_integrations.components.generators.ollama import OllamaGenerator
 from haystack.components.retrievers import InMemoryEmbeddingRetriever
 from haystack.components.builders import PromptBuilder
 from haystack import Document, Pipeline
-from usercore.usercore import UserInfo
+from aicore.usercore.usercore import UserInfo
 
 
 def init_pipeline(user_dict=dict()):

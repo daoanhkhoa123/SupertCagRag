@@ -1,4 +1,4 @@
-from airesource.prompt import translate_summarize_prompt, prompt_context_init, prompt_context_combine, propmt_chathist_summarize, prompt_rewritequery
+from aicore.airesource.prompt import translate_summarize_prompt, prompt_context_init, prompt_context_combine, propmt_chathist_summarize, prompt_rewritequery
 
 def translate_imgagesummarize(model, doc):
     return model.run(translate_summarize_prompt.format(doc=doc))["replies"][0]
