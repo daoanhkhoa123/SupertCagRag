@@ -14,7 +14,6 @@ from moviepy.editor import VideoFileClip
 from transformers import pipeline
 
 
-
 def create_vector_db(file_upload, logger, doc_embedder):
     """
     Create a vector database from an uploaded PDF file.

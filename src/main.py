@@ -18,17 +18,14 @@ from typing import List, Any
 
 
 BASE_DIR = Path(__file__).resolve().parent
-sys.path.append(str(BASE_DIR / "aicore"))
-sys.path.append(str(BASE_DIR / "aicore_database"))
-
+SRC_PARENT = BASE_DIR.parent  # This is the directory containing 'src'
+if str(SRC_PARENT) not in sys.path:
+    sys.path.insert(0, str(SRC_PARENT))
 
 from haystack_integrations.components.embedders.ollama import OllamaDocumentEmbedder
 from haystack_integrations.components.generators.ollama import OllamaGenerator
 import pdfplumber
 import streamlit as st
-
-# Ensure the parent directory of 'src' is in the Python path
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 
 # Set protobuf environment variable to avoid error messages
