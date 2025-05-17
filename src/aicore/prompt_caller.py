@@ -9,7 +9,7 @@ def context_init(model) -> str:
 
 
 def context_combine(model, curr, chat_hist, user_info) -> str:
-    chat_hist = summarize_chathist(chat_hist)
+    chat_hist = summarize_chathist(model, chat_hist)
     return model.run(prompt_context_combine.format(chat_history=chat_hist, current_thoughts=curr, user_info=user_info))["replies"][0]
 
 
