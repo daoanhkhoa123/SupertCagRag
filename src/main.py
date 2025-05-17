@@ -123,7 +123,7 @@ def process_question(question: str, document_store) -> str:
         "hallu_prompt": {"context": Context},
     }
 
-    result = run_pipe.run_single(pipe2, rewritten_question, run_dict)
+    result = run_pipe.run_single(pipe2, run_dict)
     chat_history["user"] = rewritten_question
     chat_history["assistant"] = result
     Context = prompt_caller.context_combine(
