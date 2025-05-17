@@ -23,6 +23,9 @@ import streamlit as st
 
 # Ensure the parent directory of 'src' is in the Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.append(str(BASE_DIR / "aicore"))
+sys.path.append(str(BASE_DIR / "aicore_database"))
 
 
 # Set protobuf environment variable to avoid error messages
